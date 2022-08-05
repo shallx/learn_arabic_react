@@ -1,0 +1,18 @@
+.HamimCard {
+    position: relative; 
+    height: 160px;
+    width: 200px;
+    background: linear-gradient(180deg, #79BFFF 0%, #3F6CE0 100%);
+    border-radius: 10px;
+    padding: 10px;
+}
+.HamimCard::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background-color: rgb(222, 222, 222);
+    border-radius: 10px;
+    z-index: 2;
+}

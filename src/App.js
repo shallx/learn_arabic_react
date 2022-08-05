@@ -1,23 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import ImageCard from './components/image_card/image_card';
+import Button from './ui/Button/Button';
+import { useState } from 'react';
+import { alphabets } from './constants/alphabets';
+import HamimCard from './components/hamim_card/HamimCard';
+
 
 function App() {
+  const [alphabetIndex, setAlphabetIndex] = useState(0);
+  const [showPronounciation, setShowPronounciation] = useState(false);
+
+
+  const randomLetter = () => {
+
+    setAlphabetIndex(Math.floor(Math.random() * alphabets.length));
+    setShowPronounciation(false);
+  }
+  
+  const togglePronounciationVisibility = () => {
+    setShowPronounciation(!showPronounciation);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ImageCard 
+      alphabet={alphabets[alphabetIndex]} 
+      showPronounciation={showPronounciation}
+      clicked={togglePronounciationVisibility}/>
+      <Button clicked={randomLetter}>Random</Button>
+      <HamimCard/>
     </div>
   );
 }
