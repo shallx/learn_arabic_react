@@ -219,4 +219,124 @@ export const alphabets = [
         "pronounciation" : "শিন",
     },
 
+    {
+        "path" : "141",
+        "pronounciation" : "সুয়াদ",
+    },
+    {
+        "path" : "142",
+        "pronounciation" : "সুয়াদ",
+    },
+    {
+        "path" : "143",
+        "pronounciation" : "সুয়াদ",
+    },
+    {
+        "path" : "144",
+        "pronounciation" : "সুয়াদ",
+    },
+
+    {
+        "path" : "151",
+        "pronounciation" : "দুয়াদ",
+    },
+    {
+        "path" : "152",
+        "pronounciation" : "দুয়াদ",
+    },
+    {
+        "path" : "153",
+        "pronounciation" : "দুয়াদ",
+    },
+    {
+        "path" : "154",
+        "pronounciation" : "দুয়াদ",
+    },
+
+    {
+        "path" : "161",
+        "pronounciation" : "তোয়া",
+    },
+    {
+        "path" : "162",
+        "pronounciation" : "তোয়া",
+    },
+    {
+        "path" : "163",
+        "pronounciation" : "তোয়া",
+    },
+    {
+        "path" : "164",
+        "pronounciation" : "তোয়া",
+    },
+
+    {
+        "path" : "171",
+        "pronounciation" : "যোয়া",
+    },
+    {
+        "path" : "172",
+        "pronounciation" : "যোয়া",
+    },
+    {
+        "path" : "173",
+        "pronounciation" : "যোয়া",
+    },
+    {
+        "path" : "174",
+        "pronounciation" : "যোয়া",
+    },
+
+    {
+        "path" : "181",
+        "pronounciation" : "আইন",
+    },
+    {
+        "path" : "182",
+        "pronounciation" : "আইন",
+    },
+    {
+        "path" : "183",
+        "pronounciation" : "আইন",
+    },
+    {
+        "path" : "184",
+        "pronounciation" : "আইন",
+    },
+
+    {
+        "path" : "191",
+        "pronounciation" : "গাইন/গোয়াইন",
+    },
+    {
+        "path" : "192",
+        "pronounciation" : "গাইন/গোয়াইন",
+    },
+    {
+        "path" : "193",
+        "pronounciation" : "গাইন/গোয়াইন",
+    },
+    {
+        "path" : "194",
+        "pronounciation" : "গাইন/গোয়াইন",
+    },
+
+    {
+        "path" : "201",
+        "pronounciation" : "গাইন/গোয়াইন",
+    },
+    {
+        "path" : "202",
+        "pronounciation" : "গাইন/গোয়াইন",
+    },
+    {
+        "path" : "203",
+        "pronounciation" : "গাইন/গোয়াইন",
+    },
+    {
+        "path" : "204",
+        "pronounciation" : "গাইন/গোয়াইন",
+    },
+
+
 ]

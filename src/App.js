@@ -28,7 +28,6 @@ function App() {
       showPronounciation={showPronounciation}
       clicked={togglePronounciationVisibility}/>
       <Button clicked={randomLetter}>Random</Button>
-      <HamimCard/>
     </div>
   );
 }
