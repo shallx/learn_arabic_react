@@ -1,33 +1,22 @@
 import './App.css';
-import ImageCard from './components/image_card/image_card';
-import Button from './ui/Button/Button';
-import { useState } from 'react';
-import { alphabets } from './constants/alphabets';
-import HamimCard from './components/hamim_card/HamimCard';
+import HomeView from './containers/HomeView';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import Layout from './components/Layout/Layout';
+import BannerView from './containers/Banner/BannerView';
 
 
 function App() {
-  const [alphabetIndex, setAlphabetIndex] = useState(0);
-  const [showPronounciation, setShowPronounciation] = useState(false);
-
-
-  const randomLetter = () => {
-
-    setAlphabetIndex(Math.floor(Math.random() * alphabets.length));
-    setShowPronounciation(false);
-  }
-  
-  const togglePronounciationVisibility = () => {
-    setShowPronounciation(!showPronounciation);
-  }
 
   return (
     <div className="App">
-      <ImageCard 
-      alphabet={alphabets[alphabetIndex]} 
-      showPronounciation={showPronounciation}
-      clicked={togglePronounciationVisibility}/>
-      <Button clicked={randomLetter}>Random</Button>
+      <BrowserRouter>
+        <Layout>
+        <Routes>
+            <Route path="/" element={<HomeView />} />
+            <Route path="/banner" element={<BannerView />} />
+          </Routes>
+        </Layout>
+      </BrowserRouter>
     </div>
   );
 }
