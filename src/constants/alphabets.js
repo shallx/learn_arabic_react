@@ -323,20 +323,155 @@ export const alphabets = [
 
     {
         "path" : "201",
-        "pronounciation" : "গাইন/গোয়াইন",
+        "pronounciation" : "ফা",
     },
     {
         "path" : "202",
-        "pronounciation" : "গাইন/গোয়াইন",
+        "pronounciation" : "ফা",
     },
     {
         "path" : "203",
-        "pronounciation" : "গাইন/গোয়াইন",
+        "pronounciation" : "ফা",
     },
     {
         "path" : "204",
-        "pronounciation" : "গাইন/গোয়াইন",
+        "pronounciation" : "ফা",
     },
 
+    {
+        "path" : "211",
+        "pronounciation" : "কফ",
+    },
+    {
+        "path" : "212",
+        "pronounciation" : "কফ",
+    },
+    {
+        "path" : "213",
+        "pronounciation" : "কফ",
+    },
+    {
+        "path" : "214",
+        "pronounciation" : "কফ",
+    },
+
+    {
+        "path" : "221",
+        "pronounciation" : "কাফ",
+    },
+    {
+        "path" : "222",
+        "pronounciation" : "কাফ",
+    },
+    {
+        "path" : "223",
+        "pronounciation" : "কাফ",
+    },
+    {
+        "path" : "224",
+        "pronounciation" : "কাফ",
+    },
+
+    {
+        "path" : "231",
+        "pronounciation" : "লাম",
+    },
+    {
+        "path" : "232",
+        "pronounciation" : "লাম",
+    },
+    {
+        "path" : "233",
+        "pronounciation" : "লাম",
+    },
+    {
+        "path" : "234",
+        "pronounciation" : "লাম",
+    },
+
+    {
+        "path" : "241",
+        "pronounciation" : "মীম",
+    },
+    {
+        "path" : "242",
+        "pronounciation" : "মীম",
+    },
+    {
+        "path" : "243",
+        "pronounciation" : "মীম",
+    },
+    {
+        "path" : "244",
+        "pronounciation" : "মীম",
+    },
+
+    {
+        "path" : "251",
+        "pronounciation" : "নূন",
+    },
+    {
+        "path" : "252",
+        "pronounciation" : "নূন",
+    },
+    {
+        "path" : "253",
+        "pronounciation" : "নূন",
+    },
+    {
+        "path" : "254",
+        "pronounciation" : "নূন",
+    },
+
+    {
+        "path" : "261",
+        "pronounciation" : "হা",
+    },
+    {
+        "path" : "262",
+        "pronounciation" : "হা",
+    },
+    {
+        "path" : "263",
+        "pronounciation" : "হা",
+    },
+    {
+        "path" : "264",
+        "pronounciation" : "হা",
+    },
+
+    {
+        "path" : "271",
+        "pronounciation" : "ওয়াও",
+    },
+    {
+        "path" : "272",
+        "pronounciation" : "ওয়াও",
+    },
+    {
+        "path" : "273",
+        "pronounciation" : "ওয়াও",
+    },
+    {
+        "path" : "274",
+        "pronounciation" : "ওয়াও",
+    },
+
+    {
+        "path" : "281",
+        "pronounciation" : "ইয়া",
+    },
+    {
+        "path" : "282",
+        "pronounciation" : "ইয়া",
+    },
+    {
+        "path" : "283",
+        "pronounciation" : "ইয়া",
+    },
+    {
+        "path" : "284",
+        "pronounciation" : "ইয়া",
+    },
 
 ]
