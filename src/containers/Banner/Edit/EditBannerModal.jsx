@@ -4,9 +4,14 @@ import Modal from "react-bootstrap/Modal";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
+import { useEffect } from "react";
 
 function EditBannerModal(props) {
-  const [updatedData, setUpdatedData] = useState(props.data);
+  const [updatedData, setUpdatedData] = useState(null);
+  useEffect(() => {
+    console.log("Running useEffect");
+    setUpdatedData({...props.data});
+  }, [props.data])
 
   const onInputChange = (event, identifier) => {
     const data = { ...updatedData };
@@ -15,19 +20,20 @@ function EditBannerModal(props) {
   };
 
   const onSubmit = (event) => {
-    // event.preventDefault();
-    console.log("I am here");
+    event.preventDefault();
     console.log(updatedData);
   };
 
+  
+
   return (
     <>
-      <Form onSubmit={onSubmit}>
+      
         <Modal show={props.show} onHide={props.handleClose} className="p3">
           <Modal.Header closeButton>
             <Modal.Title>Update Offer Banner</Modal.Title>
           </Modal.Header>
-
+          <Form onSubmit={onSubmit}>
           <div className="p-3">
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Title</Form.Label>
@@ -74,12 +80,16 @@ function EditBannerModal(props) {
                 onChange={(event) => onInputChange(event, "visibility")}
               />
             </Form.Group>
+            <Button variant="primary" type="submit">
+              Update
+            </Button>
           </div>
 
+          
+      </Form>
+
           <Modal.Footer>
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
+            
             <Button
               variant="secondary"
               onClick={props.handleClose}
@@ -88,7 +98,6 @@ function EditBannerModal(props) {
             </Button>
           </Modal.Footer>
         </Modal>
-      </Form>
     </>
   );
 }

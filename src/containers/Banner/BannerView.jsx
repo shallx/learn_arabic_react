@@ -62,7 +62,7 @@ function BannerView(props) {
 
   return (
     <>
-      <EditBannerModal show={showModal} handleClose={handleCloseModal} data= {selectedBrandBanner}></EditBannerModal>
+      <EditBannerModal show={showModal} handleClose={handleCloseModal} data = {selectedBrandBanner}></EditBannerModal>
       <Container>
         <h1 className="text-center p3">Banner View</h1>
         <Table striped bordered hover>
