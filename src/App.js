@@ -2,7 +2,7 @@ import './App.css';
 import HomeView from './containers/HomeView';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
-import BannerView from './containers/Banner/BannerView';
+import OfferView from './containers/Offer/OfferView';
 
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
         <Layout>
         <Routes>
             <Route path="/" element={<HomeView />} />
-            <Route path="/banner" element={<BannerView />} />
+            <Route path="/offer" element={<OfferView />} />
           </Routes>
         </Layout>
       </BrowserRouter>

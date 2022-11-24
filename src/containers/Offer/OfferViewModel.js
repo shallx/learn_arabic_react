@@ -3,7 +3,7 @@ import dbs from "../../services/firebase_init";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export default function BannerViewModel() {
+export default function OfferViewModel() {
   const getData = async () => {
     let arrayData = [];
     let promises = [];

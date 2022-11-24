@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import useViewModel from "./BannerViewModel";
+import useViewModel from "./OfferViewModel";
 import { FallingLines } from "react-loader-spinner";
 
 import { Container, Table } from "react-bootstrap";
@@ -9,7 +9,7 @@ import { useState } from "react";
 import TableRow from "./TableRow";
 import EditBannerModal from "./Edit/EditBannerModal";
 
-function BannerView(props) {
+function OfferView(props) {
   const { getData, updateData } = useViewModel();
   const [data, setData] = useState(null);
   const [showModal, setShowModal] = useState(false);
@@ -89,4 +89,4 @@ function BannerView(props) {
   );
 }
 
-export default BannerView;
+export default OfferView;
