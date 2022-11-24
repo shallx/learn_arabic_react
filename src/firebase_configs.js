@@ -19,7 +19,8 @@ const firebaseConfigs = [
   {
     name: "One Education",
     slug: 'oneedu',
-    collection: 'one_education_offers',
+    // collection: 'one_education_offers',
+    collection: 'test_collection',
     config: {
       apiKey: "AIzaSyAL6K46wVaaeP5Ye1k9PBaWS-KrqXv60Ic",
       authDomain: "apex-learning-28f04.firebaseapp.com",

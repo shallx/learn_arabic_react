@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import useViewModel from "./BannerViewModel";
-import { FallingLines } from  'react-loader-spinner'
+import { FallingLines } from "react-loader-spinner";
 
 import { Container, Table } from "react-bootstrap";
 import { useEffect } from "react";
@@ -10,7 +10,7 @@ import TableRow from "./TableRow";
 import EditBannerModal from "./Edit/EditBannerModal";
 
 function BannerView(props) {
-  const { getData } = useViewModel();
+  const { getData, updateData } = useViewModel();
   const [data, setData] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [selectedBrandBanner, setSelectedBrandBanner] = useState({});
@@ -24,45 +24,50 @@ function BannerView(props) {
 
   const handleCloseModal = () => {
     setShowModal(false);
-  }
+  };
 
   const handleShowModal = (item) => {
     console.log(item);
     setSelectedBrandBanner(item);
     setShowModal(true);
-  }
+  };
 
   let row = (
     <tr>
       <td colSpan="7">
-      <FallingLines
-        color="#4fa94d"
-        width="100"
-        visible={true}
-        ariaLabel='falling-lines-loading'
-        className='ml-auto'
-      />
+        <FallingLines
+          color="#4fa94d"
+          width="100"
+          visible={true}
+          ariaLabel="falling-lines-loading"
+          className="ml-auto"
+        />
       </td>
     </tr>
   );
   if (data != null) {
     row = data.map((item) => (
       <TableRow
-        key = {item.id}
-        brand= {item.brand}
+        key={item.id}
+        brand={item.brand}
         name={item.offer_name}
         details={item.offer_details}
         coupon={item.coupon_code}
         image={item.background_image}
         visibility={item.visibility}
-        showModal= {() => handleShowModal(item)}
+        showModal={() => handleShowModal(item)}
       ></TableRow>
     ));
   }
 
   return (
     <>
-      <EditBannerModal show={showModal} handleClose={handleCloseModal} data = {selectedBrandBanner}></EditBannerModal>
+      <EditBannerModal
+        show={showModal}
+        handleClose={handleCloseModal}
+        data={selectedBrandBanner}
+        onUpdateData={(updatedData) => updateData(updatedData, data, setData)}
+      ></EditBannerModal>
       <Container>
         <h1 className="text-center p3">Banner View</h1>
         <Table striped bordered hover>

@@ -9,8 +9,12 @@ const TableRow = (props) => (
     <td>{props.details}</td>
     <td>{props.coupon}</td>
     <td>{props.image}</td>
-    <td>{props.visibility}</td>
-    <td><Button variant="outline-success" onClick={props.showModal}>Edit</Button></td>
+    <td>{props.visibility ? "True" : "False"}</td>
+    <td>
+      <Button variant="outline-success" onClick={props.showModal}>
+        Edit
+      </Button>
+    </td>
   </tr>
 );
 
