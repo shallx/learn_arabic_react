@@ -7,7 +7,9 @@ import { Container, Table } from "react-bootstrap";
 import { useEffect } from "react";
 import { useState } from "react";
 import TableRow from "./TableRow";
-import EditBannerModal from "./Edit/EditBannerModal";
+import EditBannerModal from "./Edit/EditOfferModal";
+import { useSelector } from "react-redux";
+import { getCol } from "../../redux/brand/brandSlice";
 
 function OfferView(props) {
   const { getData, updateData } = useViewModel();
@@ -15,12 +17,17 @@ function OfferView(props) {
   const [showModal, setShowModal] = useState(false);
   const [selectedBrandBanner, setSelectedBrandBanner] = useState({});
 
+  const { selectedIndex } = useSelector((state) => state.brand);
+  const dbCol = useSelector(getCol)
+
   useEffect(() => {
-    getData().then((res) => {
-      console.log("Getting data");
+    console.log(dbCol);
+    setData(null);
+    getData(dbCol, selectedIndex).then((res) => {
+      console.log(`Getting data for ${selectedIndex}`);
       setData(res);
     }); // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [selectedIndex]);
 
   const handleCloseModal = () => {
     setShowModal(false);
@@ -34,15 +41,7 @@ function OfferView(props) {
 
   let row = (
     <tr>
-      <td colSpan="7">
-        <FallingLines
-          color="#4fa94d"
-          width="100"
-          visible={true}
-          ariaLabel="falling-lines-loading"
-          className="ml-auto"
-        />
-      </td>
+      <td colSpan="7"></td>
     </tr>
   );
   if (data != null) {
@@ -60,7 +59,7 @@ function OfferView(props) {
     ));
   }
 
-  return (
+  return data != null ? (
     <>
       <EditBannerModal
         show={showModal}
@@ -69,7 +68,7 @@ function OfferView(props) {
         onUpdateData={(updatedData) => updateData(updatedData, data, setData)}
       ></EditBannerModal>
       <Container>
-        <h1 className="text-center p3">Banner View</h1>
+        <h1 className="text-center p3">Offer View</h1>
         <Table striped bordered hover>
           <thead>
             <tr>
@@ -86,6 +85,18 @@ function OfferView(props) {
         </Table>
       </Container>
     </>
+  ) : (
+    <Container>
+      <div className="d-flex justify-content-center">
+      <FallingLines
+        color="#4fa94d"
+        width="100"
+        visible={true}
+        ariaLabel="falling-lines-loading"
+        className="m-auto"
+      />
+      </div>
+    </Container>
   );
 }
 
