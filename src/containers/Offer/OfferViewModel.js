@@ -23,38 +23,6 @@ export default function OfferViewModel() {
     return arrayData;
   };
 
-  // export default function OfferViewModel() {
-  //   const getData = async (collection) => {
-  //     let arrayData = [];
-  //     let promises = [];
-  //     for (let i = 0; i < firebaseConfigs.length; i++) {
-  //       promises.push(
-  //         new Promise((resolve, reject) => {
-  //           collection()
-  //             .limit(1)
-  //             .get()
-  //             .then((data) => {
-  //               if (!data.empty) {
-  //                 arrayData.push({
-  //                   id: data.docs[0].id,
-  //                   brand: firebaseConfigs[i].name,
-  //                   ...data.docs[0].data(),
-  //                 });
-  //                 resolve();
-  //               } else {
-  //                 console.log(data);
-  //                 reject();
-  //               }
-  //             });
-  //         })
-  //       );
-  //     }
-
-  //     await Promise.all(promises);
-
-  //     return arrayData;
-  //   };
-
   const updateData = async (updatedData, originalData, setData) => {
     let index = firebaseConfigs.findIndex(
       (item) => item.name === updatedData.brand

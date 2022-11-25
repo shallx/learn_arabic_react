@@ -3,9 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import useViewModel from "./OfferViewModel";
 import { FallingLines } from "react-loader-spinner";
 
-import { Container, Table } from "react-bootstrap";
-import { useEffect } from "react";
-import { useState } from "react";
+import { Table } from "react-bootstrap";
+import { useEffect,useState } from "react";
 import TableRow from "./TableRow";
 import EditBannerModal from "./Edit/EditOfferModal";
 import { useSelector } from "react-redux";
@@ -21,7 +20,6 @@ function OfferView(props) {
   const dbCol = useSelector(getCol)
 
   useEffect(() => {
-    console.log(dbCol);
     setData(null);
     getData(dbCol, selectedIndex).then((res) => {
       console.log(`Getting data for ${selectedIndex}`);
@@ -67,8 +65,7 @@ function OfferView(props) {
         data={selectedBrandBanner}
         onUpdateData={(updatedData) => updateData(updatedData, data, setData)}
       ></EditBannerModal>
-      <Container>
-        <h1 className="text-center p3">Offer View</h1>
+      <h1 className="text-center p3">Offer View</h1>
         <Table striped bordered hover>
           <thead>
             <tr>
@@ -83,11 +80,9 @@ function OfferView(props) {
           </thead>
           <tbody>{row}</tbody>
         </Table>
-      </Container>
     </>
   ) : (
-    <Container>
-      <div className="d-flex justify-content-center">
+    <div className="d-flex justify-content-center">
       <FallingLines
         color="#4fa94d"
         width="100"
@@ -96,7 +91,6 @@ function OfferView(props) {
         className="m-auto"
       />
       </div>
-    </Container>
   );
 }
 

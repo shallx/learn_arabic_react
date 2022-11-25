@@ -17,6 +17,7 @@ const NavComponent = (props) => {
       <Nav className="ml-auto" style={{ marginLeft: "auto" }}>
         <NavigationItem link="/home">Home</NavigationItem>
         <NavigationItem link="/offer">Offer</NavigationItem>
+        <NavigationItem link="/banners">Banners</NavigationItem>
       </Nav>
 
       <NavDropdown
