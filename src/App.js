@@ -4,8 +4,18 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import OfferView from "./containers/Offer/OfferView";
 import BannersView from "./containers/Banner/BannersView";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchOffers } from './redux/offer/offerSlice';
 
 function App() {
+  const { selectedIndex } = useSelector((state) => state.brand)
+  const dispatch = useDispatch();
+
+  useEffect(()=> {
+    dispatch(fetchOffers())
+    
+  }, [selectedIndex]);
   return (
     <div className="App">
       <BrowserRouter>
