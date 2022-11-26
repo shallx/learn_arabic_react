@@ -24,13 +24,13 @@ export const updateBanners = createAsyncThunk("offer/updateBanners", async (upda
   );
   let banner = {
     background_image: updatedData.background_image,
-    background_responsive: "",
+    background_responsive: updatedData.background_responsive,
     coupon_code: updatedData.coupon_code,
     visibility: updatedData.visibility,
   };
 
   await dbs[index]
-    .collection(firebaseConfigs[index].collection)
+    .collection(firebaseConfigs[index].banner)
     .doc(updatedData.id)
     .update(banner);
   return {

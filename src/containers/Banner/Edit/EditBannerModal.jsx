@@ -6,7 +6,7 @@ import Form from "react-bootstrap/Form";
 import { useState } from "react";
 import { useEffect } from "react";
 
-function EditOfferModal(props) {
+function EditBannerModal(props) {
   const [updatedData, setUpdatedData] = useState({});
   useEffect(() => {
     setUpdatedData({ ...props.data });
@@ -14,9 +14,11 @@ function EditOfferModal(props) {
 
   const onInputChange = (event, identifier) => {
     const data = { ...updatedData };
-    
-    if(identifier === 'visibility') {
-      data[identifier] = event.target.value === "true" ? true : false
+    console.log(typeof event.target.value);
+
+    if (identifier === "visibility") {
+      console.log("I am here " + event.target.value);
+      data[identifier] = event.target.value === "true" ? true : false;
     } else {
       data[identifier] = event.target.value;
     }
@@ -34,34 +36,16 @@ function EditOfferModal(props) {
     <>
       <Modal show={props.show} onHide={props.handleClose} className="p3">
         <Modal.Header closeButton>
-          <Modal.Title>Update Offer</Modal.Title>
+          <Modal.Title>Update Banner</Modal.Title>
         </Modal.Header>
         <Form onSubmit={onSubmit}>
           <div className="p-3">
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Title</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter title"
-                value={updatedData.offer_name || ''}
-                onChange={(event) => onInputChange(event, "offer_name")}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Details</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter Details"
-                value={updatedData.offer_details || ''}
-                onChange={(event) => onInputChange(event, "offer_details")}
-              />
-            </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Coupon</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter Coupon"
-                value={updatedData.coupon_code || ''}
+                value={updatedData.coupon_code || ""}
                 onChange={(event) => onInputChange(event, "coupon_code")}
               />
             </Form.Group>
@@ -69,16 +53,27 @@ function EditOfferModal(props) {
               <Form.Label>Background Image</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter Coupon"
-                value={updatedData.background_image || ''}
+                placeholder="Enter Details"
+                value={updatedData.background_image || ""}
                 onChange={(event) => onInputChange(event, "background_image")}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Background Responsive</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Background Responsive"
+                value={updatedData.background_responsive || ""}
+                onChange={(event) =>
+                  onInputChange(event, "background_responsive")
+                }
               />
             </Form.Group>
 
             <Form.Group className="mb-3">
               <Form.Label>Visibility</Form.Label>
               <Form.Select
-                value={`${updatedData.visibility}` || ''}
+                value={`${updatedData.visibility}` || ""}
                 onChange={(event) => onInputChange(event, "visibility")}
               >
                 <option value="true">True</option>
@@ -101,4 +96,4 @@ function EditOfferModal(props) {
   );
 }
 
-export default EditOfferModal;
+export default EditBannerModal;
