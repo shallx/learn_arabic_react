@@ -74,7 +74,7 @@ function EditBannerModal(props) {
             <Form.Group className="mb-3">
               <Form.Label>Visibility</Form.Label>
               <Form.Select
-                value={updatedData.visibility || ''}
+                value={`${updatedData.visibility}` || ''}
                 onChange={(event) => onInputChange(event, "visibility")}
               >
                 <option value="true">True</option>

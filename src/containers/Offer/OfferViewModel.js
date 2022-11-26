@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function OfferViewModel() {
-  const getData = async (dbCol, selectedIndex) => {
+  /* onst getData = async (dbCol, selectedIndex) => {
     let arrayData = [];
     await dbCol
       .get()
@@ -21,7 +21,7 @@ export default function OfferViewModel() {
       });
 
     return arrayData;
-  };
+  }; */
 
   const updateData = async (updatedData, originalData, setData) => {
     let index = firebaseConfigs.findIndex(
@@ -63,7 +63,6 @@ export default function OfferViewModel() {
   };
 
   return {
-    getData,
     updateData,
   };
 }

@@ -1,31 +1,23 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import useViewModel from "./OfferViewModel";
+// import useViewModel from "./OfferViewModel";
 import { FallingLines } from "react-loader-spinner";
 
 import { Table } from "react-bootstrap";
-import { useEffect,useState } from "react";
+import { useState } from "react";
 import TableRow from "./TableRow";
 import EditBannerModal from "./Edit/EditOfferModal";
-import { useSelector } from "react-redux";
-import { getCol } from "../../redux/brand/brandSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { ToastContainer } from "react-toastify";
+import { updateOffers } from "../../redux/offer/offerSlice";
 
 function OfferView(props) {
-  const { getData, updateData } = useViewModel();
-  const [data, setData] = useState(null);
+  // const { updateData } = useViewModel();
   const [showModal, setShowModal] = useState(false);
   const [selectedBrandBanner, setSelectedBrandBanner] = useState({});
 
-  const { selectedIndex } = useSelector((state) => state.brand);
-  const dbCol = useSelector(getCol)
-
-  useEffect(() => {
-    setData(null);
-    getData(dbCol, selectedIndex).then((res) => {
-      console.log(`Getting data for ${selectedIndex}`);
-      setData(res);
-    }); // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedIndex]);
+  const offer = useSelector((state) => state.offer)
+  const dispatch = useDispatch()
 
   const handleCloseModal = () => {
     setShowModal(false);
@@ -42,8 +34,8 @@ function OfferView(props) {
       <td colSpan="7"></td>
     </tr>
   );
-  if (data != null) {
-    row = data.map((item) => (
+  if (offer.offerData != null) {
+    row = offer.offerData.map((item) => (
       <TableRow
         key={item.id}
         brand={item.brand}
@@ -57,13 +49,14 @@ function OfferView(props) {
     ));
   }
 
-  return data != null ? (
+  return (offer.offerData != null && !offer.isLoading) ? (
     <>
+    <ToastContainer/>
       <EditBannerModal
         show={showModal}
         handleClose={handleCloseModal}
         data={selectedBrandBanner}
-        onUpdateData={(updatedData) => updateData(updatedData, data, setData)}
+        onUpdateData={(updatedData) => dispatch(updateOffers(updatedData))}
       ></EditBannerModal>
       <h1 className="text-center p3">Offer View</h1>
         <Table striped bordered hover>

@@ -7,14 +7,16 @@ import BannersView from "./containers/Banner/BannersView";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchOffers } from './redux/offer/offerSlice';
+import { getCol } from "./redux/brand/brandSlice";
 
 function App() {
   const { selectedIndex } = useSelector((state) => state.brand)
+  const dbCol = useSelector(getCol)
   const dispatch = useDispatch();
 
   useEffect(()=> {
-    dispatch(fetchOffers())
-    
+    dispatch(fetchOffers({dbCol, selectedIndex}))
+    // eslint-disable-next-line
   }, [selectedIndex]);
   return (
     <div className="App">
