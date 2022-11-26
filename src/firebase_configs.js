@@ -6,6 +6,7 @@ const firebaseConfigs = [
     slug: 'apex',
     // collection: 'apex_learning_offers',
     collection: 'test_collection',
+    banner: 'banners',
     config: {
       apiKey: "AIzaSyCrBi_9r9QHH4JYMCXQk1eb-myDc_o9SWg",
       authDomain: "apex-learning-8061d.firebaseapp.com",
@@ -21,6 +22,7 @@ const firebaseConfigs = [
     slug: 'oneedu',
     // collection: 'one_education_offers',
     collection: 'test_collection',
+    banner: 'banners',
     config: {
       apiKey: "AIzaSyAL6K46wVaaeP5Ye1k9PBaWS-KrqXv60Ic",
       authDomain: "apex-learning-28f04.firebaseapp.com",

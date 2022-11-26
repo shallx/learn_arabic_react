@@ -5,7 +5,7 @@ import { FallingLines } from "react-loader-spinner";
 
 import { Table } from "react-bootstrap";
 import { useState } from "react";
-import TableRow from "./TableRow";
+import TableRowOffer from "./TableRowOffer";
 import EditBannerModal from "./Edit/EditOfferModal";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
@@ -16,8 +16,8 @@ function OfferView(props) {
   const [showModal, setShowModal] = useState(false);
   const [selectedBrandBanner, setSelectedBrandBanner] = useState({});
 
-  const offer = useSelector((state) => state.offer)
-  const dispatch = useDispatch()
+  const offer = useSelector((state) => state.offer);
+  const dispatch = useDispatch();
 
   const handleCloseModal = () => {
     setShowModal(false);
@@ -29,29 +29,9 @@ function OfferView(props) {
     setShowModal(true);
   };
 
-  let row = (
-    <tr>
-      <td colSpan="7"></td>
-    </tr>
-  );
-  if (offer.offerData != null) {
-    row = offer.offerData.map((item) => (
-      <TableRow
-        key={item.id}
-        brand={item.brand}
-        name={item.offer_name}
-        details={item.offer_details}
-        coupon={item.coupon_code}
-        image={item.background_image}
-        visibility={item.visibility}
-        showModal={() => handleShowModal(item)}
-      ></TableRow>
-    ));
-  }
-
-  return (offer.offerData != null && !offer.isLoading) ? (
+  return offer.offerData != null && !offer.isLoading ? (
     <>
-    <ToastContainer/>
+      <ToastContainer />
       <EditBannerModal
         show={showModal}
         handleClose={handleCloseModal}
@@ -59,20 +39,35 @@ function OfferView(props) {
         onUpdateData={(updatedData) => dispatch(updateOffers(updatedData))}
       ></EditBannerModal>
       <h1 className="text-center p3">Offer View</h1>
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>Brand</th>
-              <th>Title</th>
-              <th>Details</th>
-              <th>Coupon</th>
-              <th>Background Image</th>
-              <th>Visibility</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>{row}</tbody>
-        </Table>
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>Brand</th>
+            <th>Title</th>
+            <th>Details</th>
+            <th>Coupon</th>
+            <th>Background Image</th>
+            <th>Visibility</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {offer.offerData == null
+            ? ""
+            : offer.offerData.map((item) => (
+                <TableRowOffer
+                  key={item.id}
+                  brand={item.brand}
+                  name={item.offer_name}
+                  details={item.offer_details}
+                  coupon={item.coupon_code}
+                  image={item.background_image}
+                  visibility={item.visibility}
+                  showModal={() => handleShowModal(item)}
+                ></TableRowOffer>
+              ))}
+        </tbody>
+      </Table>
     </>
   ) : (
     <div className="d-flex justify-content-center">
@@ -83,7 +78,7 @@ function OfferView(props) {
         ariaLabel="falling-lines-loading"
         className="m-auto"
       />
-      </div>
+    </div>
   );
 }
 

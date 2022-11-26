@@ -2,7 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "react-bootstrap";
 
-const TableRow = (props) => (
+const TableRowOffer = (props) => (
   <tr>
     <td>{props.brand}</td>
     <td>{props.name}</td>
@@ -18,4 +18,4 @@ const TableRow = (props) => (
   </tr>
 );
 
-export default TableRow;
+export default TableRowOffer;

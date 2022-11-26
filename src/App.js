@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchOffers } from './redux/offer/offerSlice';
 import { getCol } from "./redux/brand/brandSlice";
+import { fetchBanners } from "./redux/banner/bannerSlice";
 
 function App() {
   const { selectedIndex } = useSelector((state) => state.brand)
@@ -16,6 +17,7 @@ function App() {
 
   useEffect(()=> {
     dispatch(fetchOffers({dbCol, selectedIndex}))
+    dispatch(fetchBanners(selectedIndex))
     // eslint-disable-next-line
   }, [selectedIndex]);
   return (
